@@ -1,0 +1,9 @@
+applications:
+- name: cv-user-service
+  memory: 256M
+  disk_quota: 256M
+  instances: 1
+  path: target/cv-user-service-0.0.1-SNAPSHOT.jar
+  env:
+     JAVA_OPTS: "-Xss228k -XX:ReservedCodeCacheSize=20M"
+

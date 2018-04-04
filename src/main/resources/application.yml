@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 662734130754-62onvhmtrcgs3llm6c0smfg27v03l12i.apps.googleusercontent.com
+            client-secret: 6k73wvM8-B7Aq8JhfqBjpv2Z
+logging:
+  level:
+    org.springframework.security: INFO
+
+google:
+  issuer: https://accounts.google.com
+  jwkUrl: https://www.googleapis.com/oauth2/v2/certs
+
+
+management.endpoint.shutdown.enabled: true
+management.endpoints.web.exposure.include: "*"
