@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .cors()
         .and()
         .authorizeRequests()
-        .antMatchers("/actuator/**")
+        .antMatchers("/actuator/**", "/profile/headline")
         .permitAll()
         .and()
         .authorizeRequests()
