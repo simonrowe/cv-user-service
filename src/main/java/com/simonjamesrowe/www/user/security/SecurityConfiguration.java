@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .cors()
         .and()
         .authorizeRequests()
-        .antMatchers("/actuator/**", "/profile/headline")
+        .antMatchers("/actuator/**", "/profile/headline", "/profile/description")
         .permitAll()
         .and()
         .authorizeRequests()
@@ -46,6 +46,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     configuration.addAllowedOrigin("*");
     configuration.addAllowedMethod("*");
     configuration.addAllowedHeader("*");
+    configuration.addExposedHeader("Content-Type");
+    configuration.addExposedHeader("Cache-Control");
+    configuration.addExposedHeader("Content-Length");
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
     return source;

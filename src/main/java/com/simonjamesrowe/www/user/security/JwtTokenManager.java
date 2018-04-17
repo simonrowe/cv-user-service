@@ -43,10 +43,11 @@ public class JwtTokenManager implements InitializingBean {
 
   /**
    * public String generateToken(OAuth2User user) { String name = (String)
-   * user.getAttributes().get(NAME); String emailAddress = (String) user.getAttributes().get(EMAIL);
-   * List<String> roles = getRoles(emailAddress); return Jwts.builder() .claim(EMAIL, emailAddress)
-   * .claim(ROLES, roles) .claim(NAME, name) .setExpiration(new Date(System.currentTimeMillis() +
-   * (expiryTime * 1000))) .signWith(SignatureAlgorithm.HS512, secretKey.getBytes()) .compact(); }*
+   * user.getAttributes().getHeadline(NAME); String emailAddress = (String)
+   * user.getAttributes().getHeadline(EMAIL); List<String> roles = getRoles(emailAddress); return
+   * Jwts.builder() .claim(EMAIL, emailAddress) .claim(ROLES, roles) .claim(NAME, name)
+   * .setExpiration(new Date(System.currentTimeMillis() + (expiryTime * 1000)))
+   * .signWith(SignatureAlgorithm.HS512, secretKey.getBytes()) .compact(); }*
    */
   public OAuth2AuthenticationToken decodeToken(String idToken) throws Exception {
     try {

@@ -13,13 +13,23 @@ public class ProfileEndPoint {
 
   @Autowired private ProfileService profileService;
 
-  @GetMapping("profile/headline")
+  @GetMapping(value = "profile/headline")
   public HeadlineDto getHeadline() {
-    return profileService.get();
+    return profileService.getHeadline();
   }
 
-  @PostMapping(name = "profile/headline/save", consumes = "application/json")
+  @PostMapping(value = "profile/headline/save", consumes = "application/json")
   public void headline(@RequestBody HeadlineDto headlineDto) {
-    profileService.save(headlineDto.getHeadline());
+    profileService.saveHeadline(headlineDto.getHeadline());
+  }
+
+  @GetMapping(value = "profile/description")
+  public String getDescription() {
+    return profileService.getDescription();
+  }
+
+  @PostMapping(value = "profile/description/save")
+  public void saveDescription(@RequestBody String description) {
+    profileService.saveDescription(description);
   }
 }
